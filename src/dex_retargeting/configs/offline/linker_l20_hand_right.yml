@@ -1,0 +1,25 @@
+retargeting:
+  type: position
+  urdf_path: linker_l20_hand/linkerhand_l20_right.urdf
+
+  target_joint_names: [ "thumb_joint0", "thumb_joint1", "thumb_joint2", "thumb_joint3",
+                        "index_joint0", "index_joint1", "index_joint2",
+                        "middle_joint0", "middle_joint1", "middle_joint2",
+                        "ring_joint0", "ring_joint1", "ring_joint2",
+                        "little_joint0", "little_joint1", "little_joint2" ]
+
+  # Fingertips (link5/link4) + mid-finger links (link3/link2)
+  # thumb_link5=tip, index_link4=tip, middle_link4=tip, ring_link4=tip, little_link4=tip
+  # thumb_link3=mid, index_link2=mid, middle_link2=mid, ring_link2=mid, little_link2=mid
+  target_link_names: [ "thumb_link5", "index_link4", "middle_link4", "ring_link4", "little_link4",
+                       "thumb_link3", "index_link2", "middle_link2", "ring_link2", "little_link2" ]
+
+  # MediaPipe hand landmark indices:
+  # Tips:  thumb=4, index=8, middle=12, ring=16, little=20
+  # Mids:  thumb=2, index=6, middle=10, ring=14, little=18
+  target_link_human_indices: [ 4, 8, 12, 16, 20, 2, 6, 10, 14, 18 ]
+  add_dummy_free_joint: True
+
+  # A smaller alpha means stronger filtering, i.e. more smooth but also larger latency
+  # 1 means no filter while 0 means not moving
+  low_pass_alpha: 1

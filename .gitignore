@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+dist/
+build/
+.mypy_cache/
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE / Editor
+.vscode/
+.idea/
+/.dir-locals.el
+/.ccls-cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+cmake-build-debug/
+*.blend
+*.convex.*
+imgui.ini
+/log/
+/temp/
+assets/doc
+
+# Robots - ignore all hands except linker_l20_hand and linker_l20a_hand
+assets/robots/hands/*
+!assets/robots/hands/linker_l20_hand/
+!assets/robots/hands/linker_l20a_hand/
