@@ -1,0 +1,67 @@
+# Reproducible conda environment for this repository.
+#
+# Create on a new machine:
+#   conda env create -f environment.yml
+#   conda activate dex-retargeting
+#
+# Refresh after editing this file:
+#   conda env update -f environment.yml --prune
+#
+# The vector retargeting examples live in:
+#   example/vector_retargeting
+
+name: dex-retargeting
+channels:
+  - defaults
+
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      # Install the local repository in editable mode with the example tools.
+      - -e ".[dev,example]"
+
+      # Core runtime dependencies. These versions match the current
+      # dex-retargeting conda environment used for the vector examples.
+      - numpy==1.26.4
+      - pytransform3d==3.15.0
+      - pin==3.9.0
+      - nlopt==2.10.0
+      - anytree==2.13.0
+      - PyYAML==6.0.3
+      - lxml==6.0.4
+
+      # example/vector_retargeting dependencies.
+      - tyro==1.0.13
+      - tqdm==4.67.3
+      - opencv-python==4.13.0.92
+      - opencv-contrib-python==4.13.0.92
+      - mediapipe==0.10.14
+      - sapien==3.0.0b0
+      - loguru==0.7.3
+      - matplotlib==3.10.8
+
+      # Development and smoke-test tools.
+      - pytest==9.0.3
+      - ruff==0.15.11
+      - isort==8.0.1
+
+      # Extra packages present in the working environment and useful for
+      # rendering, plotting, or related hand-model workflows.
+      - mujoco==3.6.0
+      - glfw==2.10.0
+      - pillow==12.2.0
+      - scipy==1.13.1
+      - jax==0.6.2
+      - jaxlib==0.6.2
+      - transforms3d==0.4.2
+      - chumpy==0.70
+      - chumpy-fork==0.71
+      - sounddevice==0.5.5
+      - pyperclip==1.11.0
+      - requests==2.33.1
+      - protobuf==4.25.9
+
+      # PyTorch CPU wheels are resolved from the official PyTorch index.
+      - --extra-index-url https://download.pytorch.org/whl/cpu
+      - torch==2.11.0+cpu
